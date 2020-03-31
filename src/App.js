@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import HomeCountries from './pages/HomeCountries'
+import CountryPage from './pages/CountryPage'
 
 export default function App(){
 
@@ -12,6 +13,7 @@ export default function App(){
               <Route exact  path="/" >
                   <HomeCountries />
               </Route>
+              <Route exact path="/:countryCode" children={<CountryPage />}  />
           </Switch>
       </Router>
     </div>
