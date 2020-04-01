@@ -1,22 +1,24 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom'
 
-const SearchBar = () => {
+// const countryMocks = [{name: 'Argentina', aplha3Code:'ARG'},
+// {name: 'Brasil'},
+// {name: 'Uruguay'},
+// {name: 'Etiopia'},
+// {name: 'Francia'},
+// {name: 'Afganistan'},
+// {name: 'Alemania'},
+// {name: 'Holanda'},
+// ]
+let resultLink = []
+
+const SearchBar = ({countries}) => {
     const [searchText, setSearchText] = useState('')
-    let timer = 2
     const handleChange = (e) => {
         setSearchText(e.target.value)
     }
 
-    useEffect( () => {
-        console.log(typeof timer)
-        if (timer !== 2){
-            timer.clearTimeout()
-            console.log('clearing timeout')
-        }
-        timer = setTimeout( () => {
-            console.log(searchText)
-        }, 1500)
-    }, [searchText] )
+    resultLink = countries.filter(country => country.name.toLowerCase().includes(searchText.toLowerCase()))
 
     return (
         <div>
@@ -25,6 +27,11 @@ const SearchBar = () => {
             placeholder="Search" 
             value={searchText}
             />
+            <div>
+    { searchText !== '' && 
+    resultLink.map(res => <Link to={res.alpha3Code.toLowerCase()} key={res.name}>{res.name}</Link>)
+    }
+            </div>
         </div>
     );
 };
