@@ -1,21 +1,17 @@
 import React, {useState} from 'react';
 import CountryCard from '../components/CountryCard'
+import FilterDropdown from '../components/FilterDropdown'
 
 export default function HomeCountries({countries}){
-  const [filter , setFilter ] = useState(null)
-
+  const [activeFilter , setActiveFilter ] = useState('')
   return(
     <div >
-      <div>
-      <button onClick={() => setFilter(null)}>Remove</button>
-        <button onClick={() => setFilter('Africa')}>Africa</button>
-        <button onClick={() => setFilter('Americas')}>Americas</button>
-        <button onClick={() => setFilter('Asia')}>Asia</button>
-        <button onClick={() => setFilter('Europe')}>Europe</button>
-        <button onClick={() => setFilter('Oceania')}>Oceania</button>
-      </div>
+      <FilterDropdown 
+      setActiveFilter={setActiveFilter} 
+      activeFilter={activeFilter}
+      />
       <div className='country-cards-container'>
-      {countries.filter(country => !filter || country.region===filter  ).map(country => <CountryCard  key={country.name}  {...country}  />  )}
+      {countries.filter(country => !activeFilter || country.region===activeFilter  ).map(country => <CountryCard  key={country.name}  {...country}  />  )}
       </div>
     </div>
   )

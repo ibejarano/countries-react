@@ -9,12 +9,12 @@ export default function App(){
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    axios.get('https://restcountries.eu/rest/v2/all').then(({data}) => setCountries(data)  ).catch(console.log)
+    // axios.get('https://restcountries.eu/rest/v2/all').then(({data}) => setCountries(data)  ).catch(console.log)
 }, [])
 
   return(
     <div>
-      <h1>My country app</h1>
+      <h3>Where in the world?</h3>
       <Router>
           <Switch>
               <Route exact  path="/" >
