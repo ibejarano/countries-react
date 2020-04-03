@@ -5,10 +5,11 @@ const StyledDetailCard = styled.div`
     width: 320px;
     margin: 16px auto;
     box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.08);
+    background: ${props => props.theme.color.background};
     a {
         text-decoration: none;
         margin-bottom: 1rem;
-        background: #E9E9E9;
+        background: ${props => props.theme.color.chip};
         padding: 5px;
         border-radius: 0.4rem;
     }
@@ -23,7 +24,7 @@ const StyledDetailCard = styled.div`
     }
     h3, p, a {
         margin-left: 1rem;
-        color: black;
+        color: ${props => props.theme.color.textColor};
     }
 
     div {

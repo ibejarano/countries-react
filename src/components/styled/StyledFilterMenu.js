@@ -7,7 +7,7 @@ const StyledFilterMenu = styled.div`
   padding: 7px;
   box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
   width: 50%;
-  background: white;
+  background: ${props => props.theme.color.background};
   margin: 26px;
   select {
     -webkit-appearance: none;
@@ -16,7 +16,7 @@ const StyledFilterMenu = styled.div`
     /* Add some styling */
     border:none;
     width: 80%;
-    color: #333;
+    color: ${props => props.theme.color.textColor};
     background: inherit;
   }
   select::after{
@@ -24,7 +24,7 @@ const StyledFilterMenu = styled.div`
   }
 
   button {
-    background: white;
+    background: ${props => props.theme.color.background};
     border: none;
     width: 20%;
   }

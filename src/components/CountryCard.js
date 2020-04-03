@@ -10,7 +10,6 @@ export default function CountryCard({
   alpha3Code,
   flag
 }) {
-    console.log(region)
   return (
       <StyledCard>
     <Link to={alpha3Code.toLowerCase()}>
