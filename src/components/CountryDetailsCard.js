@@ -1,17 +1,43 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import StyledDetailCard from './styled/StyledDetailCard';
+
+function CardLineInfo({name, data}){
+    return (
+        <p><strong>{name}</strong>: {data}</p>
+    )
+}
+
+function ListLineInfo({name, data}){
+    let listData = data.map(d => d['name'])
+    return (
+        <p><strong>{name}</strong>: {listData.join(', ')}</p>
+    )
+}
 
 const CountryDetailsCard = (props) => {
-    console.log(props)
-    const borders = props.borders.map(border => <Link key={border} to={`/${border.toLowerCase()}`} >{border}</Link>)
+    const borders = props.countriesBorder.map(border => <Link key={border.name} to={`/${border.alpha3Code.toLowerCase()}`} >{border.name}</Link>)
     return (
-        <div>
-            <h1>{props.name}</h1>
+        <StyledDetailCard>
+            <img src={props.flag} alt='country flag' />
+            <h3>Name: {props.name}</h3>
+            {<>
+                <CardLineInfo name='Native Name' data={props.nativeName} />
+                <CardLineInfo name='Population' data={props.population}  />
+                <CardLineInfo name='Region' data={props.region}  />
+                <CardLineInfo name='Sub Region' data={props.subregion} />
+                <CardLineInfo name='Capital' data={props.capital} />
+                <ListLineInfo name='Languages' data={props.languages} />
+                <br/>
+                <ListLineInfo name='Currencies' data={props.currencies} />
+                <CardLineInfo name='Gini Index' data={props.gini} />
+                </>
+            }
+            <h3>Borders</h3>
             <div>
-                <h2>Borders</h2>
                 {borders}
             </div>
-        </div>
+        </StyledDetailCard>
     );
 };
 
