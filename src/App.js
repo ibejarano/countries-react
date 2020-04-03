@@ -7,14 +7,17 @@ import SearchBar from "./components/SearchBar";
 
 import AwesomeTitle from "./components/styled/PageTitle";
 import "./styles/index.css";
+import COUNTRIES from './data/countries';
 
 export default function App() {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
+    setCountries(COUNTRIES)
     // axios.get('https://restcountries.eu/rest/v2/all').then(({data}) => setCountries(data)  ).catch(console.log)
   }, []);
 
+  console.log(countries);
   return (
     <div>
       <AwesomeTitle>
