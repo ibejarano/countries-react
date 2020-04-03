@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom'
 import axios from 'axios';
 
+import BackButton from '../components/BackButton'
 import  CountryDetailsCard from '../components/CountryDetailsCard';
 
 const CountryPage = () => {
@@ -26,6 +27,7 @@ const CountryPage = () => {
 
     return (
         <div>
+            <BackButton />
             { !loading &&
                 <CountryDetailsCard {...countryData} countriesBorder={countriesBorder}  />
             }
