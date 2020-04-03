@@ -1,12 +1,12 @@
 import React from 'react';
-
+import StyledFilterMenu from './styled/StyledFilterMenu'
 // import { Container } from './styles';
 
 const REGIONS = ['Africa','Americas', 'Asia', 'Europe', 'Oceania']
 
 const FilterDropdown = ({setActiveFilter, activeFilter}) => {
     return (
-    <div>
+    <StyledFilterMenu>
       <select  onChange={(e) => setActiveFilter(e.target.value) }
       value={activeFilter}
       >
@@ -18,7 +18,7 @@ const FilterDropdown = ({setActiveFilter, activeFilter}) => {
       { activeFilter &&
         <button onClick={()=> setActiveFilter('')} >x</button>
       }
-    </div>
+    </StyledFilterMenu>
     )
 }
 

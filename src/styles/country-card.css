@@ -7,7 +7,7 @@
 .country-card-container {
     max-width: 300px;
     margin-bottom: 2rem;
-    border: 1px solid black;
+    border-bottom:  0 1px 0 0 solid black;
 }
 
 .country-card-container img {
