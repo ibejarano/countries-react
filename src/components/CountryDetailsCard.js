@@ -27,7 +27,9 @@ const CountryDetailsCard = (props) => {
   ));
   return (
     <StyledDetailCard>
+      <div className='card-flag-container'>
       <img className='card-flag' src={props.flag} alt="country flag" />
+      </div>
       {
         <div className="card-info">
           <h3>{props.name}</h3>
