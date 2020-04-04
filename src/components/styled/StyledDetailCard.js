@@ -2,10 +2,13 @@ import styled from 'styled-components';
 
 
 const StyledDetailCard = styled.div`
-    width: 320px;
+    min-width: 320px;
+    max-width: 1200px;
     margin: 16px auto;
     box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.08);
     background: ${props => props.theme.color.background};
+    display: flex;
+    flex-flow: row wrap;
     a {
         text-decoration: none;
         margin-bottom: 1rem;
@@ -14,7 +17,7 @@ const StyledDetailCard = styled.div`
         border-radius: 0.4rem;
     }
     img {
-        width: 100%;
+        min-width: 250px;
     }
     h3{
         font-size: 16px;
@@ -27,9 +30,15 @@ const StyledDetailCard = styled.div`
         color: ${props => props.theme.color.textColor};
     }
 
-    div {
+    .card-borders-chips {
         display: flex;
         flex-flow: row wrap;
+    }
+
+    @media (min-width: 700px) {
+        div {
+            margin: 3rem;
+        }
     }
 
 `
