@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import StyledSearchBar from "./styled/StyledSearchBar";
+import StyledSearchBar from "./StyledSearchBar";
 import SearchIcon from "@material-ui/icons/Search";
 
 let resultLink = [];

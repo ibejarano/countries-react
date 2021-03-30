@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Brightness4Icon from "@material-ui/icons/Brightness4";
 
 const StyledButton = styled.button`
   background: inherit;
@@ -12,17 +11,17 @@ const StyledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-around;
-
+  border: 1px solid black;
+  padding: 8px 4px;
   @media (min-width: 768px) {
     font-size: 16px;
   }
 `;
 
-const Button = ({ isDarkMode, setDarkMode, leftIcon, rightIcon, children }) => (
-  <StyledButton onClick={() => setDarkMode(!isDarkMode)}>
+const Button = ({ setDarkMode, leftIcon, children }) => (
+  <StyledButton onClick={() => setDarkMode((mode) => !mode)}>
     {leftIcon}
-    <p>{children}</p>
-    {rightIcon}
+    {children}
   </StyledButton>
 );
 
