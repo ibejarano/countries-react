@@ -6,11 +6,16 @@ import AwesomeTitle from "../styled/PageTitle";
 const Container = styled.nav`
   display: flex;
   width: 100vw;
-  padding: 5px 30px;
+  padding: 5px 15px;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
   background: ${(props) => props.theme.color.background};
+
+  @media (min-width: 720px){
+    padding: 15px 30px;
+  }
+
 `;
 
 export default function Navbar(props) {
