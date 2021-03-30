@@ -20,7 +20,7 @@ const Dropdown = ({ setActiveFilter, activeFilter }) => {
           </option>
         ))}
       </select>
-      {activeFilter && <button onClick={() => setActiveFilter("")}>x</button>}
+      {activeFilter && <button onClick={() => setActiveFilter("")}>X</button>}
     </StyledDropdown>
   );
 };

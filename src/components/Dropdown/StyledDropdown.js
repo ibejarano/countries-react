@@ -17,6 +17,7 @@ const StyledFilterMenu = styled.div`
     color: ${(props) => props.theme.color.textColor};
     background: inherit;
     cursor: pointer;
+    font-size: 16px;
   }
   select::after {
     content: "v";
@@ -24,15 +25,24 @@ const StyledFilterMenu = styled.div`
 
   button {
     background: ${(props) => props.theme.color.background};
-    border: none;
-    width: 20%;
+    border: 1px solid black;
+    width: 10%;
+    font-size: 16px;
+    font-weight: 900;
+    transition: transform 0.1s linear;
+    cursor: pointer;
   }
   button:hover {
     color: red;
+    transform: scale(1.1);
   }
 
   @media (max-width: 720px) {
     width: 100%;
+
+    select {
+      font-size: 18px;
+    }
   }
 `;
 

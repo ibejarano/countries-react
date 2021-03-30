@@ -34,6 +34,29 @@ const StyledCard = styled.div`
   :hover {
     transform: translate(6px, -6px);
   }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    margin: 4px auto;
+    padding: 0;
+
+    h3 {
+      margin-bottom: 0;
+    }
+
+    a {
+      display: flex;
+      flex-flow: row nowrap;
+
+      img {
+        width: 50%;
+      }
+
+      div {
+        width: 50vw;
+      }
+    }
+  }
 `;
 
 const Card = ({ name, population, region, capital, alpha3Code, flag }) => {
@@ -44,12 +67,14 @@ const Card = ({ name, population, region, capital, alpha3Code, flag }) => {
         style={{ color: "inherit", textDecoration: "inherit" }}
       >
         <img src={flag} alt={`${name} country flag`} />
-        <h3>{name}</h3>
-        <ul>
-          <li>Population: {population}</li>
-          <li>Region: {region}</li>
-          <li>Capital: {capital}</li>
-        </ul>
+        <div>
+          <h3>{name}</h3>
+          <ul>
+            <li>Population: {population}</li>
+            <li>Region: {region}</li>
+            <li>Capital: {capital}</li>
+          </ul>
+        </div>
       </Link>
     </StyledCard>
   );
