@@ -4,13 +4,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import HomeCountries from "./pages/HomeCountries";
 import CountryPage from "./pages/CountryPage";
+import Layout from "./components/Layout";
 import light from "./themes/light";
 import dark from "./themes/dark";
 import COUNTRIES from "./data/countries";
 import "./styles/index.css";
-
-// new things!
-import Navbar from "./components/Navbar";
 
 export default function App() {
   const [countries, setCountries] = useState([]);
@@ -23,15 +21,16 @@ export default function App() {
 
   return (
     <ThemeProvider theme={isDarkMode ? dark : light}>
-      <Navbar isDarkMode={isDarkMode} setDarkMode={setDarkMode} />
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <HomeCountries countries={countries} />
-          </Route>
-          <Route exact path="/:countryCode" children={<CountryPage />} />
-        </Switch>
-      </Router>
+      <Layout setDarkMode={setDarkMode} isDarkMode={isDarkMode}>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <HomeCountries countries={countries} />
+            </Route>
+            <Route exact path="/:countryCode" children={<CountryPage />} />
+          </Switch>
+        </Router>
+      </Layout>
     </ThemeProvider>
   );
 }

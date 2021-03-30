@@ -14,7 +14,7 @@ const Container = styled.nav`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  background: white;
+  background: ${(props) => props.theme.color.background};
   @media (min-width: 720px) {
     padding: 15px 30px;
   }
