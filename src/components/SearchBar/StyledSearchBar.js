@@ -23,6 +23,15 @@ const StyledSearchBar = styled.div`
     padding: 0;
   }
 
+  div {
+    position: absolute;
+    top: 120px;
+    background: white;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 48%;
+  }
+
   @media (max-width: 720px) {
     width: 100%;
   }

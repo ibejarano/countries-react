@@ -26,8 +26,16 @@ const SearchBar = ({ countries }) => {
       />
       <div>
         {searchText !== "" &&
-          resultLink.map((res) => (
-            <Link to={res.alpha3Code.toLowerCase()} key={res.name}>
+          resultLink.map((res, idx) => (
+            <Link
+              to={res.alpha3Code.toLowerCase()}
+              key={idx}
+              style={{
+                padding: "0.75em",
+                textDecoration: "none",
+                borderBottom: "1px solid black",
+              }}
+            >
               {res.name}
             </Link>
           ))}
