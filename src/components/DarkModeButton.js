@@ -5,21 +5,23 @@ import Brightness4Icon from "@material-ui/icons/Brightness4";
 const StyledButton = styled.button`
   background: inherit;
   color: ${(props) => props.theme.color.textColor};
-  font-size: 12px;
-  /* padding: 20px; */
+  font-size: 16px;
   margin: auto 0;
   width: 160px;
   border: none;
-  /* height: 50%; */
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const DarkModeButton = ({ isDarkMode, setDarkMode }) => (
   <StyledButton onClick={() => setDarkMode(!isDarkMode)}>
     <Brightness4Icon />
-    <p>Dark Mode</p>
+    {/* <p>Dark Mode</p> */}
   </StyledButton>
 );
 

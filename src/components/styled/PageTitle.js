@@ -1,16 +1,13 @@
 import styled from "styled-components";
 
-const AwesomeTitle = styled.div`
-  width: 100%;
-  height: 64px;
+const AwesomeTitle = styled.h1`
+  color: ${(props) => props.theme.color.textColor};
+  font-size: 16px;
   margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: begin;
-  color: ${props => props.theme.color.textColor};
-  h1 {
-    font-size: 14px;
-    margin: 0px 2rem;
+  padding: 0;
+
+  @media (min-width: 720px) {
+    font-size: 24px;
   }
 `;
 

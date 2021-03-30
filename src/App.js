@@ -6,25 +6,27 @@ import HomeCountries from "./pages/HomeCountries";
 import CountryPage from "./pages/CountryPage";
 import SearchBar from "./components/SearchBar";
 import Container from "./components/Container";
-import TitleContainer from "./components/TitleContainer";
 import light from "./themes/light";
 import dark from "./themes/dark";
-
+import COUNTRIES from "./data/countries";
 import "./styles/index.css";
+
+// new things!
+import Navbar from "./components/Navbar";
 
 export default function App() {
   const [countries, setCountries] = useState([]);
   const [isDarkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    axios.get('https://restcountries.eu/rest/v2/all').then(({data}) => setCountries(data)  ).catch(console.log)
-    // setCountries(COUNTRIES);
+    // axios.get('https://restcountries.eu/rest/v2/all').then(({data}) => setCountries(data)  ).catch(console.log)
+    setCountries(COUNTRIES);
   }, []);
 
   return (
     <ThemeProvider theme={isDarkMode ? dark : light}>
+      <Navbar isDarkMode={isDarkMode} setDarkMode={setDarkMode} />
       <Container>
-        <TitleContainer isDarkMode={isDarkMode} setDarkMode={setDarkMode} />
         <Router>
           <Switch>
             <Route exact path="/">
