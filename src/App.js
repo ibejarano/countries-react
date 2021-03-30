@@ -6,7 +6,7 @@ import HomeCountries from "./pages/HomeCountries";
 import CountryPage from "./pages/CountryPage";
 import light from "./themes/light";
 import dark from "./themes/dark";
-// import COUNTRIES from "./data/countries";
+import COUNTRIES from "./data/countries";
 import "./styles/index.css";
 
 // new things!
@@ -17,8 +17,8 @@ export default function App() {
   const [isDarkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    axios.get('https://restcountries.eu/rest/v2/all').then(({data}) => setCountries(data)  ).catch(console.log)
-    // setCountries(COUNTRIES);
+    // axios.get('https://restcountries.eu/rest/v2/all').then(({data}) => setCountries(data)  ).catch(console.log)
+    setCountries(COUNTRIES);
   }, []);
 
   return (

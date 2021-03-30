@@ -6,14 +6,15 @@ import Brightness4Icon from "@material-ui/icons/Brightness4";
 
 const Container = styled.nav`
   width: 100vw;
+  height: 11vh;
   position: sticky;
+  top: 0;
   display: flex;
   padding: 5px 10px;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  background: ${(props) => props.theme.color.background};
-
+  background: white;
   @media (min-width: 720px) {
     padding: 15px 30px;
   }

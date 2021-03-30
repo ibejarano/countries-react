@@ -6,7 +6,7 @@ const StyledSearchBar = styled.div`
   align-items: center;
   padding: 10px;
   box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
-  margin: 0 auto;
+  margin: 20px auto;
   width: 50%;
   background: ${(props) => props.theme.color.background};
   color: ${(props) => props.theme.color.textColor};
