@@ -5,17 +5,15 @@ import CountryCard from "../components/CountryCard";
 import Dropdown from "../components/Dropdown";
 import SearchBar from "../components/SearchBar";
 
-const CountryContainerStyle = {
-  display: "flex",
-  flexFlow: "row wrap",
-};
-
 const Container = styled.div`
   background: ${(props) => props.theme.color.mainBackground};
-  padding: 50px;
 
   .country-cards-container {
     background: yellow;
+    display: flex;
+    flex-flow: row wrap;
+    width: 60%;
+    margin: 1em auto;
   }
 `;
 
@@ -25,7 +23,7 @@ export default function HomeCountries({ countries }) {
     <Container>
       <SearchBar countries={countries} />
       <Dropdown setActiveFilter={setActiveFilter} activeFilter={activeFilter} />
-      <div className="country-cards-container" style={CountryContainerStyle}>
+      <div className="country-cards-container">
         {countries
           .filter((country) => !activeFilter || country.region === activeFilter)
           .map((country) => (

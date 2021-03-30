@@ -6,7 +6,7 @@ import Brightness4Icon from "@material-ui/icons/Brightness4";
 
 const Container = styled.nav`
   width: 100vw;
-  position: fixed;
+  position: sticky;
   display: flex;
   padding: 5px 10px;
   flex-flow: row nowrap;

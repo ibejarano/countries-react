@@ -3,7 +3,6 @@ import styled from "styled-components";
 const StyledFilterMenu = styled.div`
   display: flex;
   flex-direction: row nowrap;
-  height: 30px;
   padding: 7px;
   box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
   width: 20%;
