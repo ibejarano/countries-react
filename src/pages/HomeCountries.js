@@ -12,8 +12,17 @@ const Container = styled.div`
   .country-cards-container {
     display: flex;
     flex-flow: row wrap;
-    width: 60%;
+    width: 70%;
     margin: 1em auto;
+  }
+
+  @media (max-width: 900px) {
+    .country-cards-container {
+      display: flex;
+      flex-flow: row wrap;
+      width: 100%;
+      margin: 0 auto;
+    }
   }
 `;
 

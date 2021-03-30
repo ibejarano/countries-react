@@ -19,12 +19,16 @@ const Container = styled.nav`
   }
 `;
 
-export default function Navbar(props) {
+export default function Navbar({ setDarkMode, isDarkMode }) {
+  const toggleDarkMode = () => {
+    setDarkMode((mode) => !mode);
+  };
+
   return (
     <Container>
       <AwesomeTitle>Where in the world?</AwesomeTitle>
-      <Button setDarkMode={props.setDarkMode} leftIcon={<Brightness4Icon />}>
-        Dark mode
+      <Button action={toggleDarkMode} leftIcon={<Brightness4Icon />}>
+        {isDarkMode ? "Go Light" : "Go Dark"}
       </Button>
     </Container>
   );
