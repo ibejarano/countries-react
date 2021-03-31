@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import StyledDetailCard from "./styled/StyledDetailCard";
+import StyledDetailCard from "./StyledDetailCard";
 
 function CardLineInfo({ name, data }) {
   return (
@@ -27,8 +27,8 @@ const CountryDetailsCard = (props) => {
   ));
   return (
     <StyledDetailCard>
-      <div className='card-flag-container'>
-      <img className='card-flag' src={props.flag} alt="country flag" />
+      <div className="card-flag-container">
+        <img className="card-flag" src={props.flag} alt="country flag" />
       </div>
       {
         <div className="card-info">
