@@ -16,6 +16,8 @@ const StyledSearchBar = styled.div`
     font-size: 16px;
     flex-grow: 5;
     padding: 5px 10px;
+    background: ${(props) => props.theme.color.background};
+    color: ${(props) => props.theme.color.textColor};
   }
   span {
     flex-grow: 1;
@@ -25,7 +27,7 @@ const StyledSearchBar = styled.div`
 
   div {
     position: absolute;
-    top: 120px;
+    top: 170px;
     background: white;
     display: flex;
     flex-flow: column nowrap;
