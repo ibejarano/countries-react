@@ -20,11 +20,6 @@ function ListLineInfo({ name, data }) {
 }
 
 const CountryDetailsCard = (props) => {
-  const borders = props.countriesBorder.map((border) => (
-    <Link key={border.name} to={`/${border.alpha3Code.toLowerCase()}`}>
-      {border.name}
-    </Link>
-  ));
   return (
     <StyledDetailCard>
       <div className="card-flag-container">
@@ -44,9 +39,22 @@ const CountryDetailsCard = (props) => {
           <CardLineInfo name="Gini Index" data={props.gini} />
         </div>
       }
-      <div class="card-borders">
-        <h3>Borders</h3>
-        <div class="card-borders-chips">{borders}</div>
+      <div className="card-borders">
+        {props.countriesBorder.length ? (
+          <>
+            <h3>Borders</h3>
+            {props.countriesBorder.map((border) => (
+              <Link
+                key={border.name}
+                to={`/${border.alpha3Code.toLowerCase()}`}
+              >
+                {border.name}
+              </Link>
+            ))}
+          </>
+        ) : (
+          <h3>No Borders</h3>
+        )}
       </div>
     </StyledDetailCard>
   );

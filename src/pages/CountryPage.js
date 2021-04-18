@@ -18,18 +18,21 @@ const CountryPage = () => {
         `https://restcountries.eu/rest/v2/alpha/${countryCode}`
       );
       setCountryData(data);
-      const res = await axios.get(
-        `https://restcountries.eu/rest/v2/alpha?codes=${data.borders
-          .join(";")
-          .toLowerCase()}`
-      );
+      console.log(data);
+      if (data.borders.length) {
+        const res = await axios.get(
+          `https://restcountries.eu/rest/v2/alpha?codes=${data.borders
+            .join(";")
+            .toLowerCase()}`
+        );
+        setCountriesBorder(
+          res.data.map((country) => ({
+            name: country.name,
+            alpha3Code: country.alpha3Code,
+          }))
+        );
+      }
 
-      setCountriesBorder(
-        res.data.map((country) => ({
-          name: country.name,
-          alpha3Code: country.alpha3Code,
-        }))
-      );
       setLoading(false);
     }
 
