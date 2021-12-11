@@ -21,7 +21,7 @@ const CountryPage = () => {
       if (data[0].borders.length) {
         const res = await axios.get(
           `https://restcountries.com/v3.1/alpha?codes=${data[0].borders
-            .join(";")
+            .join(",")
             .toLowerCase()}`
         );
         setCountriesBorder(
