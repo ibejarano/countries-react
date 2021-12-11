@@ -12,7 +12,7 @@ const SearchBar = ({ countries }) => {
   };
 
   resultLink = countries.filter((country) =>
-    country.name.toLowerCase().includes(searchText.toLowerCase())
+    country.name.common.toLowerCase().includes(searchText.toLowerCase())
   );
 
   return (
@@ -28,7 +28,7 @@ const SearchBar = ({ countries }) => {
         {searchText !== "" &&
           resultLink.map((res, idx) => (
             <Link
-              to={res.alpha3Code.toLowerCase()}
+              to={res.cca3.toLowerCase()}
               key={idx}
               style={{
                 padding: "0.75em",

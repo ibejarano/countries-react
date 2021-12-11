@@ -14,8 +14,9 @@ export default function App() {
   const [isDarkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    axios.get('https://restcountries.eu/rest/v2/all').then(({data}) => setCountries(data)  ).catch(console.log)
+    axios.get('https://restcountries.com/v3.1/all').then(({ data }) => setCountries(data)).catch(() => alert("An error has ocurred with server"))
   }, []);
+
 
   return (
     <ThemeProvider theme={isDarkMode ? dark : light}>

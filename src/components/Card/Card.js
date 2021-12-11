@@ -59,16 +59,16 @@ const StyledCard = styled.div`
   }
 `;
 
-const Card = ({ name, population, region, capital, alpha3Code, flag }) => {
+const Card = ({ name, population, region, capital, cca3, flags }) => {
   return (
     <StyledCard>
       <Link
-        to={alpha3Code.toLowerCase()}
+        to={cca3.toLowerCase()}
         style={{ color: "inherit", textDecoration: "inherit" }}
       >
-        <img src={flag} alt={`${name} country flag`} />
+        <img src={flags.png} alt={`${name.common} country flag`} />
         <div>
-          <h3>{name}</h3>
+          <h3>{name.common}</h3>
           <ul>
             <li>Population: {population}</li>
             <li>Region: {region}</li>

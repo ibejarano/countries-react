@@ -36,7 +36,7 @@ export default function HomeCountries({ countries }) {
         {countries
           .filter((country) => !activeFilter || country.region === activeFilter)
           .map((country) => (
-            <Card key={country.name} {...country} />
+            <Card key={country.name.common} {...country} />
           ))}
       </div>
     </Container>
