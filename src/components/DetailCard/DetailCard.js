@@ -10,8 +10,8 @@ function CardLineInfo({ name, data }) {
   );
 }
 
-function ListLineInfo({ name, data }) {
-  let listData = data.map((d) => d["name"]);
+function ListCurrenciesInfo({ name, currencies }) {
+  let listData = Object.entries(currencies).map(([key, value]) => `${value.name} (${value.symbol})`);
   return (
     <p>
       <strong>{name}</strong>: {listData.join(", ")}
@@ -19,36 +19,44 @@ function ListLineInfo({ name, data }) {
   );
 }
 
-const CountryDetailsCard = (props) => {
+function ListLanguages({ name, languages }) {
+  let listData = Object.entries(languages).map(([key, value]) => value);
+  return (
+    <p>
+      <strong>{name}</strong>: {listData.join(", ")}
+    </p>
+  );
+}
+
+const CountryDetailsCard = ({ countriesBorder, name, population, flags, region, subregion, capital, languages, currencies}) => {
   return (
     <StyledDetailCard>
       <div className="card-flag-container">
-        <img className="card-flag" src={props.flag} alt="country flag" />
+        <img className="card-flag" src={flags.png} alt="country flag" />
       </div>
       {
         <div className="card-info">
-          <h3>{props.name}</h3>
-          <CardLineInfo name="Native Name" data={props.nativeName} />
-          <CardLineInfo name="Population" data={props.population} />
-          <CardLineInfo name="Region" data={props.region} />
-          <CardLineInfo name="Sub Region" data={props.subregion} />
-          <CardLineInfo name="Capital" data={props.capital} />
-          <ListLineInfo name="Languages" data={props.languages} />
+          <h3>{name.common}</h3>
+          <CardLineInfo name="Native Name" data={name.official} />
+          <CardLineInfo name="Population" data={population} />
+          <CardLineInfo name="Region" data={region} />
+          <CardLineInfo name="Sub Region" data={subregion} />
+          <CardLineInfo name="Capital" data={capital[0]} />
+          <ListLanguages name="Languages" languages={languages} />
           <br />
-          <ListLineInfo name="Currencies" data={props.currencies} />
-          <CardLineInfo name="Gini Index" data={props.gini} />
+          <ListCurrenciesInfo name="Currencies" currencies={currencies} />
         </div>
       }
       <div className="card-borders">
-        {props.countriesBorder.length ? (
+        {countriesBorder.length ? (
           <>
             <h3>Borders</h3>
-            {props.countriesBorder.map((border) => (
+            {countriesBorder.map((border) => (
               <Link
-                key={border.name}
-                to={`/${border.alpha3Code.toLowerCase()}`}
+                key={border.name.common}
+                to={border.cca3.toLowerCase()}
               >
-                {border.name}
+                {border.name.common}
               </Link>
             ))}
           </>

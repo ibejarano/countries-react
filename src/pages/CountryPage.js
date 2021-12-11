@@ -15,20 +15,19 @@ const CountryPage = () => {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        `https://restcountries.eu/rest/v2/alpha/${countryCode}`
+        `https://restcountries.com/v3.1/alpha/${countryCode}`
       );
-      setCountryData(data);
-      console.log(data);
-      if (data.borders.length) {
+      setCountryData(data[0]);
+      if (data[0].borders.length) {
         const res = await axios.get(
-          `https://restcountries.eu/rest/v2/alpha?codes=${data.borders
+          `https://restcountries.com/v3.1/alpha?codes=${data[0].borders
             .join(";")
             .toLowerCase()}`
         );
         setCountriesBorder(
           res.data.map((country) => ({
             name: country.name,
-            alpha3Code: country.alpha3Code,
+            cca3: country.cca3,
           }))
         );
       }
