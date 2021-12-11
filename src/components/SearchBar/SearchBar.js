@@ -31,12 +31,12 @@ const SearchBar = ({ countries }) => {
               to={res.cca3.toLowerCase()}
               key={idx}
               style={{
-                padding: "0.75em",
+                padding: "0.5em",
                 textDecoration: "none",
                 borderBottom: "1px solid black",
               }}
             >
-              {res.name}
+              {res.name.common}
             </Link>
           ))}
       </div>
