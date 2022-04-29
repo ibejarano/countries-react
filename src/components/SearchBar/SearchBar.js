@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import StyledSearchBar from "./StyledSearchBar";
+import StyledResults from "./StyledResults";
 import SearchIcon from "@material-ui/icons/Search";
 
 let resultLink = [];
@@ -16,31 +17,35 @@ const SearchBar = ({ countries }) => {
   );
 
   return (
-    <StyledSearchBar>
-      <SearchIcon />
-      <input
-        type="text"
-        onChange={handleChange}
-        placeholder="Search for a country..."
-        value={searchText}
-      />
-      <div>
-        {searchText !== "" &&
-          resultLink.map((res, idx) => (
-            <Link
-              to={res.cca3.toLowerCase()}
-              key={idx}
-              style={{
-                padding: "0.5em",
-                textDecoration: "none",
-                borderBottom: "1px solid black",
-              }}
-            >
-              {res.name.common}
-            </Link>
+    <>
+      <StyledSearchBar>
+        <SearchIcon />
+        <input
+          type="text"
+          onChange={handleChange}
+          placeholder="Search for a country..."
+          value={searchText}
+        />
+      </StyledSearchBar>
+      {searchText !== "" && (
+        <StyledResults>
+          <li> Search results</li>
+          {resultLink.map((res, idx) => (
+            <li key={idx}>
+              <Link
+                to={res.cca3.toLowerCase()}
+                style={{
+                  padding: "0.5em",
+                  textDecoration: "none",
+                }}
+              >
+                {res.name.common}
+              </Link>
+            </li>
           ))}
-      </div>
-    </StyledSearchBar>
+        </StyledResults>
+      )}
+    </>
   );
 };
 

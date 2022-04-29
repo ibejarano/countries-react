@@ -27,7 +27,7 @@ const StyledSearchBar = styled.div`
 
   div {
     position: absolute;
-    top: 130px;
+    top: 200px;
     background: white;
     display: flex;
     flex-flow: column nowrap;
