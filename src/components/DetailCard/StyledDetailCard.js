@@ -2,20 +2,20 @@ import styled from "styled-components";
 
 const StyledDetailCard = styled.div`
   min-width: 320px;
-  max-width: 1200px;
+  max-width: 600px;
   min-height: 80vh;
   margin: 16px auto;
   box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.08);
   background: ${(props) => props.theme.color.background};
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-items: center;
+  padding: 10px;
+  a:first-child {
+    background: white;
+  }
+
   a {
-    text-decoration: none;
-    margin-bottom: 1rem;
-    background: ${(props) => props.theme.color.chip};
-    padding: 5px;
-    border-radius: 0.4rem;
   }
 
   .card-flag-container {
@@ -43,12 +43,20 @@ const StyledDetailCard = styled.div`
   }
 
   .card-borders {
-    margin: 0 auto;
-  }
+    margin: 0;
+    padding: 0;
 
-  .card-borders-chips {
-    display: flex;
-    flex-flow: row wrap;
+    div {
+      display: flex;
+      flex-flow: row wrap;
+
+      a {
+        border-radius: 12px;
+        padding: 8px 16px;
+        margin-bottom: 10px;
+        background: ${(props) => props.theme.color.chip};
+      }
+    }
   }
 
   @media (min-width: 931px) {

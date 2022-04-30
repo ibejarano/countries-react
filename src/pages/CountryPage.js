@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import ArrowLeft from "@material-ui/icons/ArrowBack";
 
-import Button from "../components/Button";
 import DetailsCard from "../components/DetailCard";
 
 const CountryPage = () => {
@@ -40,16 +38,7 @@ const CountryPage = () => {
 
   if (loading) return <h3>Loading...</h3>;
 
-  return (
-    <div>
-      <Link to="/">
-        <Button leftIcon={<ArrowLeft />}>Back</Button>
-      </Link>
-      {!loading && (
-        <DetailsCard {...countryData} countriesBorder={countriesBorder} />
-      )}
-    </div>
-  );
+  return <DetailsCard {...countryData} countriesBorder={countriesBorder} />;
 };
 
 export default CountryPage;
